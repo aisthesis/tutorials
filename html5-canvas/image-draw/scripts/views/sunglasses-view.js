@@ -1,8 +1,16 @@
-var codeMelon = codeMelon || {}; 
-codeMelon.games = codeMelon.games || {}; 
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'usr/draw'
+], function(
+    $,
+    UsRet,
+    BbRet,
+    Draw) {
+    "use strict";
 
-(function(_cg) {
-    _cg.SunglassesView = Backbone.View.extend({
+    var SunglassesView = Backbone.View.extend({
         initialize: function(options) {
             _.bindAll(this,
                 'render',
@@ -23,8 +31,8 @@ codeMelon.games = codeMelon.games || {};
         setConstants: function(options) {
             this.CONTEXT = this.el.getContext('2d');
             this.CIRCLE_RADIUS = 128;
-            this.CLIPPING_CIRCLE = new _c.draw.Circle({
-                center: new _c.draw.Point(this.el.width / 2, this.el.height / 2),
+            this.CLIPPING_CIRCLE = new Draw.Circle({
+                center: new Draw.Point(this.el.width / 2, this.el.height / 2),
                 radius: this.CIRCLE_RADIUS
             });
         },
@@ -56,4 +64,6 @@ codeMelon.games = codeMelon.games || {};
             });
         }
     });
-})(codeMelon.games);
+
+    return SunglassesView;
+});

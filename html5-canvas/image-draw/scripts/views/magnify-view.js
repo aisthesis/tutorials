@@ -1,9 +1,16 @@
-var _c = _c || {}; 
-_c.app = _c.app || {}; 
-_c.app.views = _c.app.views || {};
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'usr/draw'
+], function(
+    $,
+    UsRet,
+    BbRet,
+    Draw) {
+    "use strict";
 
-(function(_cg) {
-    _cg.MagnifyView = Backbone.View.extend({
+    var MagnifyView = Backbone.View.extend({
         events: {
             'mousedown': 'handleMouseDown',
             'mousemove': 'handleMouseMove',
@@ -52,19 +59,19 @@ _c.app.views = _c.app.views || {};
             this.offscreenCanvas.width = this.el.width * this.MAGNIFICATION;
             this.offscreenCanvas.height = this.el.height * this.MAGNIFICATION;
             this.offscreenContext = this.offscreenCanvas.getContext('2d');
-            this.circle = new _c.draw.Circle({
-                center: new _c.draw.Point(this.el.width / 2, this.el.height / 2),
+            this.circle = new Draw.Circle({
+                center: new Draw.Point(this.el.width / 2, this.el.height / 2),
                 radius: this.CIRCLE_RADIUS,
                 strokeStyle: 'white',
                 lineWidth: 2
             });
             this.image = new Image();
             this.dragging = false;
-            this.mousedown = new _c.draw.Point(0, 0);
-            this.origCenter = new _c.draw.Point(this.circle.center.x, this.circle.center.y);
+            this.mousedown = new Draw.Point(0, 0);
+            this.origCenter = new Draw.Point(this.circle.center.x, this.circle.center.y);
             // used to store event locations
-            this.eventLoc = new _c.draw.Point(0, 0);
-            this.offset = new _c.draw.Vector(0, 0);
+            this.eventLoc = new Draw.Point(0, 0);
+            this.offset = new Draw.Vector(0, 0);
         },
 
         drawMagnifier: function() {
@@ -82,9 +89,9 @@ _c.app.views = _c.app.views || {};
                 this.dragging = false;
                 return;
             }
-            _c.draw.windowToCanvas(this.el, event.clientX, event.clientY, this.mousedown);
+            Draw.CanvasUtils.windowToCanvas(this.el, event.clientX, event.clientY, this.mousedown);
             if (!this.circle.contains(this.mousedown)) { return; }
-            this.origCenter = new _c.draw.Point(this.circle.center.x, this.circle.center.y);
+            this.origCenter = new Draw.Point(this.circle.center.x, this.circle.center.y);
             this.dragging = true;
         },
 
@@ -100,10 +107,12 @@ _c.app.views = _c.app.views || {};
         },
 
         moveMagnifier: function(event) {
-            _c.draw.getOffset(this.el, this.mousedown, event, this.eventLoc, this.offset);
+            Draw.CanvasUtils.getOffset(this.el, this.mousedown, event, this.eventLoc, this.offset);
             this.origCenter.offset(this.offset, this.circle.center);
             this.CONTEXT.drawImage(this.image, 0, 0);
             this.drawMagnifier();
         }
+    });
+
+    return MagnifyView;
 });
-})(_c.app.views);

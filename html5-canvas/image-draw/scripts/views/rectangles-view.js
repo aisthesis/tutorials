@@ -1,8 +1,17 @@
-var codeMelon = codeMelon || {}; 
-codeMelon.games = codeMelon.games || {}; 
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'usr/draw'
+], function(
+    $,
+    UsRet,
+    BbRet,
+    Draw
+) {
+    "use strict";
 
-(function(_cg) {
-    _cg.RectanglesView = Backbone.View.extend({
+    var RectanglesView = Backbone.View.extend({
         initialize: function(options) {
             _.bindAll(this,
                 'render',
@@ -16,19 +25,19 @@ codeMelon.games = codeMelon.games || {};
         },
 
         render: function() {
-            var r1 = new _c.draw.Rectangle({
-                    corner: new _c.draw.Point(4, 4), 
+            var r1 = new Draw.Rectangle({
+                    corner: new Draw.Point(4, 4), 
                     width: 64, 
                     height: 32
                 }),
-                r2 = new _c.draw.Rectangle({
-                    corner: new _c.draw.Point(128, 128),
+                r2 = new Draw.Rectangle({
+                    corner: new Draw.Point(128, 128),
                     width: 64,
                     height: 128,
                     fillStyle: 'olive'
                 }),
-                r3 = new _c.draw.Rectangle({
-                    corner: new _c.draw.Point(496, 496),
+                r3 = new Draw.Rectangle({
+                    corner: new Draw.Point(496, 496),
                     width: -256,
                     height: -128 * 3,
                     strokeStyle: 'red'
@@ -46,4 +55,6 @@ codeMelon.games = codeMelon.games || {};
         initMembers: function(options) {
         }
     });
-})(codeMelon.games);
+
+    return RectanglesView;
+});

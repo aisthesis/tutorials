@@ -1,8 +1,16 @@
-var codeMelon = codeMelon || {}; 
-codeMelon.games = codeMelon.games || {}; 
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'scripts/views/arch-orig-view'
+], function(
+    $,
+    UsRet,
+    BbRet,
+    ArchOrigView) {
+    "use strict";
 
-(function(_cg) {
-    _cg.ImageManipView = Backbone.View.extend({
+    var ImageManipView = Backbone.View.extend({
         initialize: function(options) {
             _.bindAll(this,
                 'render',
@@ -22,9 +30,11 @@ codeMelon.games = codeMelon.games || {};
         },
 
         initMembers: function(options) {
-            this.archOrigView = new _cg.ArchOrigView({
+            this.archOrigView = new ArchOrigView({
                 el: '#arch-orig'
             });
         }
     });
-})(codeMelon.games);
+
+    return ImageManipView;
+});

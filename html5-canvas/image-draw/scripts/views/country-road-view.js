@@ -1,8 +1,19 @@
-var codeMelon = codeMelon || {}; 
-codeMelon.games = codeMelon.games || {}; 
-
-(function(_cg) {
-    _cg.CountryRoadView = Backbone.View.extend({
+define([
+    'jquery',
+    'underscore',
+    'backbone'
+], function(
+    $,
+    UsRet,
+    /*
+     * backbone.js doesn't return anything, so
+     * labeling this variable Backbone actually obfuscates
+     * the Backbone object and sets it to 'undefined'.
+     * Similarly for `_` with underscore
+     */
+    BbRet) {
+    "use strict";
+    var CountryRoadView = Backbone.View.extend({
         initialize: function(options) {
             _.bindAll(this,
                 'render',
@@ -33,4 +44,6 @@ codeMelon.games = codeMelon.games || {};
             };
         }
     });
-})(codeMelon.games);
+
+    return CountryRoadView;
+});

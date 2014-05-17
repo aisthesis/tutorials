@@ -1,8 +1,18 @@
-var codeMelon = codeMelon || {}; 
-codeMelon.games = codeMelon.games || {}; 
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'usr/draw',
+    'scripts/views/arch-modified-view'
+], function(
+    $,
+    UsRet,
+    BbRet,
+    Draw,
+    ArchModifiedView) {
+    "use strict";
 
-(function(_cg) {
-    _cg.ArchOrigView = Backbone.View.extend({
+    var ArchOrigView = Backbone.View.extend({
         events: {
             'mousedown': 'handleMouseDown',
             'mousemove': 'handleMouseMove',
@@ -42,7 +52,7 @@ codeMelon.games = codeMelon.games || {};
                 _this.CONTEXT.drawImage(_this.image, 0, 0);
                 _this.setImageData();
                 _this.setTransparentImageData();
-                _this.archModifiedView = new _cg.ArchModifiedView({
+                _this.archModifiedView = new ArchModifiedView({
                     el: '#arch-modified',
                     imageData: _this.transparentImageData
                 });
@@ -71,13 +81,13 @@ codeMelon.games = codeMelon.games || {};
 
         handleMouseDown: function(event) {
             this.dragging = true;
-            this.rectangle = new _c.draw.Rectangle({
-                corner: _c.draw.windowToCanvas(this.el, event.clientX, event.clientY)
+            this.rectangle = new Draw.Rectangle({
+                corner: Draw.CanvasUtils.windowToCanvas(this.el, event.clientX, event.clientY)
             });
         },
 
         handleMouseMove: function(event) {
-            var loc = _c.draw.windowToCanvas(this.el, event.clientX, event.clientY);
+            var loc = Draw.CanvasUtils.windowToCanvas(this.el, event.clientX, event.clientY);
 
             if (!this.dragging) { return; }
             this.rectangle.width = loc.x - this.rectangle.corner.x;
@@ -97,4 +107,6 @@ codeMelon.games = codeMelon.games || {};
             this.CONTEXT.drawImage(this.image, 0, 0);
         }
     });
-})(codeMelon.games);
+
+    return ArchOrigView;
+});
