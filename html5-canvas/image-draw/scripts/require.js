@@ -1,1 +1,1 @@
-../../lib/require-2.1.9.js
+../../lib/require.js
