@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Images and video</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../lib/bootstrap-3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="styles/app.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="../common/melon.png" alt="Melon" width="64" height="64">
+                    </div>
+                    <div class="col-md-11">
+                        <h1>Images and Video</h1>
+                    </div>
+                </div>
+                <p class="lead"><i>HTML5 Canvas</i>, ch. 4</p>
+            </div>
+
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Draw an image</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="country-road" width="798" height="563">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Draw rectangles</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="rectangles" width="512" height="512">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <section id="image-manip">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Original image</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <canvas id="arch-orig" width="800" height="520">
+                                Canvas not supported
+                            </canvas>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Modified image</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <canvas id="arch-modified" width="800" height="520">
+                                Canvas not supported
+                            </canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Sunglasses (pp. 303ff.)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="sunglasses" width="779" height="550">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Magnifying glass (pp. 321ff.)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="magnify" width="861" height="557">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/require.js" data-main="scripts/main"></script>
+    </body>
+</html>

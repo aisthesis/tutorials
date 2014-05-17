@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sprites</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../lib/bootstrap-3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="styles/app.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="../common/melon.png" alt="Melon" width="64" height="64">
+                    </div>
+                    <div class="col-md-11">
+                        <h1>Sprites</h1>
+                    </div>
+                </div>
+                <p class="lead"><em>Core HTML5 Canvas</em>, ch. 6</p>
+            </div>
+
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>pp. 396ff.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="simple" width="512" height="512">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Clock, pp. 399ff.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="clock" width="512" height="512">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Bomb, pp. 404f.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="bomb" width="512" height="512">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Tile set (sprite sheet), pp. 407ff.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <canvas id="runner" width="512" height="512">
+                            Canvas not supported
+                        </canvas>
+                    </div>
+                </div>
+
+                <div id="explosion-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Frame set (sprite animator), pp. 417ff.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="light-fuse" class="btn btn-default" type="button">Light fuse</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <canvas id="explosion" width="512" height="512">
+                                Canvas not supported
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/require.js" data-main="scripts/main"></script>
+    </body>
+</html>
